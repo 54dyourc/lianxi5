@@ -1,0 +1,33 @@
+.model{
+    position: fixed;
+    width: 30vw;
+    height: 25vh;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin: auto;
+    background-color: mistyrose;
+    font-size: 18px;
+}
+.model .title{
+    font-size: 150%;
+    text-align: center;
+    margin: .5em 0;
+}
+.model .content{
+    margin: 2em;
+    text-align: center;
+}
+.model .accept{
+    position: absolute;
+    bottom: 1.5em;
+    right: 2.5em;
+    color: seagreen;
+}
+.model .cancel{
+    position: absolute;
+    bottom: 1.5em;
+    left:2.5em;
+    color:firebrick;
+}

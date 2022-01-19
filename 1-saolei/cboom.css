@@ -1,0 +1,58 @@
+#initBox{
+    position: fixed;
+    width:30vw;
+    height:25vh;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin: 3% auto;
+    background-color: lavender;
+    text-align:center;
+    font-size: 18px;
+}
+#initBox #title{
+    font-size: 120%;
+    text-align: center;
+    margin: .5em 0;
+}
+#initBox .content{
+    margin: .4em;
+    text-align: center;
+}
+#initBox #startBtn{
+    position: absolute;
+    left:40%;
+    bottom: 0.5em;
+    color: firebrick;
+}
+.box {
+    position: fixed;
+    height: 450px;
+    width: 450px;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin: auto;
+    border: 1px solid #c6d693;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    display: none;
+}
+.block {
+    float: left;
+    width: 29px;
+    height: 29px;
+    border-right: 1px solid #c6d693;
+    border-bottom: 1px solid #c6d693;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3) inset;
+    background-color: #011071;
+    text-align: center;
+}
+
+.number{
+    background: #F4DE4D;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 28px;
+} 

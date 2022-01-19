@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本编辑器</title>
+    <style>
+        .editButtons span {
+            display: inline-block;
+        }
+
+        .editbtn {
+            float: left;
+            border: 0;
+            font: 18px/1 monospace;
+            background: #ddd;
+            padding: 4px 8px;
+        }
+
+        .editrgb {
+            float: left;
+            border: 0;
+            font: 15px/1 monospace;
+            padding: 4px 8px;
+        }
+
+        #red {
+            background: rgb(238, 184, 184);
+        }
+
+        #green {
+            background: rgb(188, 238, 184);
+        }
+
+        #blue {
+            background: rgb(184, 225, 238);
+        }
+
+        #textbox {
+            padding: 4px 16px;
+            background: rgb(202, 198, 198);
+        }
+
+        #text {
+            width: 100%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="editButtons">
+
+        <span title="rgb">
+            <!-- 数值输入框 -->
+            <input class="editrgb" id="red" type="text" placeholder="请输入数值(0-255)：" />
+            <input class="editrgb" id="green" type="text" placeholder="请输入数值(0-255)：" />
+            <input class="editrgb" id="blue" type="text" placeholder="请输入数值(0-255)：" />
+        </span>
+
+        <span title="backgroundColor">
+            <!-- 页面背景颜色 -->
+            <button class="editbtn" id="backgroundColor">修改页面背景颜色</button>
+
+        </span>
+    </div>
+
+    <!-- contenteditable 属性指定元素内容是否可编辑。
+         注意： 当元素中没有设置 contenteditable 属性时，元素将从父元素继承。 -->
+    <div contenteditable id="textbox">
+        <textarea id="text" rows="45" placeholder="在此输入文本..."></textarea>
+    </div>
+
+</body>
+<script>
+    var color, value;
+    window.onload = function () {
+        //页面初始化时获取数据
+        text = document.getElementById("text");
+        let color = localStorage.getItem("color");
+        text.style.backgroundColor = color;
+        text.value = localStorage.getItem("value");
+
+        //按钮绑定响应事件
+        document.getElementsByClassName("editbtn")[0].addEventListener("click", function () {
+            result = "t";
+            red = parseInt(document.getElementById("red").value);
+            green = parseInt(document.getElementById("green").value);
+            blue = parseInt(document.getElementById("blue").value);
+            color = "rgb(" + red + "," + green + "," + blue + ")";
+            if (red < 0 || red > 255) {
+                alert("输入的数值不规范，请重新输入");
+                result = "f";
+            }
+            if (green < 0 || green > 255) {
+                alert("输入的数值不规范，请重新输入");
+                result = "f";
+            }
+            if (blue < 0 || blue > 255) {
+                alert("输入的数值不规范，请重新输入");
+                result = "f";
+            }
+            if (result == "t") {
+                text.style.backgroundColor = color;
+                localStorage.setItem("color", color);
+            }
+        })
+    }
+
+    text.addEventListener("input", function () {
+        value = document.getElementById("text").value;
+        localStorage.setItem("value", value);
+    })
+</script>
+
+</html>
